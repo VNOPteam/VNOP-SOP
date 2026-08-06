@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -6149,13 +6149,13 @@ window.bootSOPApp = function () {
   if (window.__sopBooted) return;   // guard against double-boot
   window.__sopBooted = true;
 
-  var LANGS = ["vi", "en"];
+  var LANGS = ["en", "vi"];
   var state = {
-    lang: document.documentElement.getAttribute("lang") || "vi",
+    lang: document.documentElement.getAttribute("lang") || "en",
     cat: "all",
     query: ""
   };
-  if (LANGS.indexOf(state.lang) === -1) state.lang = "vi";
+  if (LANGS.indexOf(state.lang) === -1) state.lang = "en";
 
   var SOPS = window.SOP_DATA || [];
   var CATS = window.SOP_CATEGORIES || [];
@@ -6865,7 +6865,7 @@ window.bootSOPApp = function () {
     document.title = t("appTitle");
   }
   function setLang(lang) {
-    if (LANGS.indexOf(lang) === -1) lang = "vi";
+    if (LANGS.indexOf(lang) === -1) lang = "en";
     state.lang = lang;
     try { localStorage.setItem("sop-lang", lang); } catch (e) {}
     applyI18n();
@@ -6962,13 +6962,13 @@ window.bootSOPApp = function () {
 (function () {
   "use strict";
 
-  var LANGS = ["vi", "en"];
+  var LANGS = ["en", "vi"];
   var I18N = window.I18N || {};
   var SS_KEY = "sop-pass";   // sessionStorage: nhớ đã mở khóa trong phiên tab
 
   function lang() {
-    var l = document.documentElement.getAttribute("lang") || "vi";
-    return LANGS.indexOf(l) === -1 ? "vi" : l;
+    var l = document.documentElement.getAttribute("lang") || "en";
+    return LANGS.indexOf(l) === -1 ? "en" : l;
   }
   function t(key) {
     var d = I18N[lang()] || I18N.en;
@@ -7027,7 +7027,7 @@ window.bootSOPApp = function () {
       return '<option value="' + l + '"' + (l === lang() ? " selected" : "") + ">" + name + "</option>";
     }).join("");
     sel.addEventListener("change", function () {
-      var l = LANGS.indexOf(sel.value) === -1 ? "vi" : sel.value;
+      var l = LANGS.indexOf(sel.value) === -1 ? "en" : sel.value;
       document.documentElement.setAttribute("lang", l);
       try { localStorage.setItem("sop-lang", l); } catch (e) {}
       localizeGate();
