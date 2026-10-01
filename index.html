@@ -2076,6 +2076,29 @@ window.SOP_PAYLOAD = {
      },
      {
       "t": "h",
+      "text": "Case C: Hard-Block (HB) Booking"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "For HB bookings, if there is no justifiable reason, VNOP will definitely reject all free cancellation requests.",
+       "Exception: the guest provides sufficient proof for force majeure cases, OR the AGT mentions in the email that the hotel has directly agreed with the guest to allow free cancellation.",
+       "In these exceptional cases, VNOP contacts SCM to ask for approval of the FOC request.",
+       "Inform Agent of SCM's decision (approved or rejected) and process the booking accordingly."
+      ]
+     },
+     {
+      "t": "callout",
+      "v": "warn",
+      "title": "Important – HB Bookings",
+      "lines": [
+       "For HB bookings, ALL requests to cancel or change dates go through SCM. The decision is made by SCM.",
+       "VNOP does NOT contact the hotel directly for these requests."
+      ]
+     },
+     {
+      "t": "h",
       "text": "Notes"
      },
      {
@@ -6134,6 +6157,433 @@ window.SOP_PAYLOAD = {
      }
     ]
    }
+  },
+  {
+   "id": "SOP-019",
+   "cat": "verify",
+   "title": {
+    "vi": "Xử lý lỗi mapping & thời gian phản hồi nội bộ",
+    "en": "Mapping Issue Handling SOP & Internal Response Times"
+   },
+   "summary": {
+    "vi": "Quy trình xử lý lỗi mapping: bảo vệ khách, xác định lỗi của ai, escalate khách hàng (Client CS → GSM), chi phí và phòng ngừa tái diễn.",
+    "en": "Handle mapping errors: guest protection, attribution, client escalation (Client CS → GSM), cost responsibility and recurrence prevention."
+   },
+   "purpose": {
+    "vi": "Quản lý việc bảo vệ khách, xác định lỗi thuộc về ai, escalate tới khách hàng, trách nhiệm chi phí và phòng ngừa tái diễn khi xảy ra lỗi mapping bằng một quy trình thống nhất. Nguyên tắc: Ohmyhotel giải quyết trước cho khách và khách sạn; việc xác định lỗi và thu hồi chi phí xử lý sau dựa trên chứng từ và SLA/phụ lục của khách hàng.",
+    "en": "To manage guest protection, attribution, client escalation, cost responsibility and recurrence prevention through one consistent process when a mapping error occurs. Core rule: Ohmyhotel protects the guest and hotel first; attribution and cost recovery follow based on evidence and the applicable client SLA/addendum."
+   },
+   "tags": [
+    "mapping",
+    "wrong mapping",
+    "GSM",
+    "escalation",
+    "SLA"
+   ],
+   "version": "2.1",
+   "effective": "26-Aug-2026",
+   "by": "OP · CT · GSM",
+   "body": {
+    "en": [
+     {
+      "t": "h",
+      "text": "Document Info"
+     },
+     {
+      "t": "kv",
+      "title": "",
+      "rows": [
+       ["Owner", "OP · CT · GSM"],
+       ["Applies to", "OP, CT, GSM, SCM and all teams handling client/downstream mapping issues"],
+       ["Version", "2.1 — Final"],
+       ["Effective date", "26 August 2026"],
+       ["Classification", "Internal Use Only"]
+      ]
+     },
+     {
+      "t": "callout",
+      "v": "info",
+      "title": "Core Operating Rule",
+      "lines": [
+       "Ohmyhotel protects the guest and hotel first. Attribution and cost recovery follow based on evidence and the applicable client SLA/addendum."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "1. End-to-End Flow at a Glance"
+     },
+     {
+      "t": "list",
+      "ordered": true,
+      "items": [
+       "Verify — OP validates evidence and booking.",
+       "Attribute — OMH vs. Client/downstream.",
+       "Client CS — immediate notice and resolution request.",
+       "GSM PIC — second escalation after the response window.",
+       "Final Notice — reserve cost recovery rights; protect guest.",
+       "Close — confirm cost, correction and future bookings."
+      ]
+     },
+     {
+      "t": "callout",
+      "v": "note",
+      "title": "",
+      "lines": [
+       "If Client CS resolves the case immediately, close at Step 3. If it cannot resolve or does not respond, move to GSM escalation."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "2. Scope and Classification"
+     },
+     {
+      "t": "table",
+      "head": ["Category", "Criteria", "Handling rule"],
+      "rows": [
+       ["Type 1 Confirmed Wrong Mapping", "Original confirmed room differs from the guest voucher or room actually provided", "Immediate OP action + CT root-cause review"],
+       ["Type 2 Potential Mapping", "Future booking with the same hotel, channel, room type and mapping combination as Type 1", "Proactive OP verification before check-in"],
+       ["OMH-attributable", "OMH manual mapping or internal data-setting error", "Notify client immediately; OMH resolves"],
+       ["Client-attributable", "Client, downstream agent or downstream system error", "Client CS → GSM PIC → final notice/cost handling"]
+      ]
+     },
+     {
+      "t": "h",
+      "text": "3. Roles and Responsibilities"
+     },
+     {
+      "t": "table",
+      "head": ["Team", "Primary responsibility"],
+      "rows": [
+       ["OP", "Validate booking/voucher, contact Client CS, protect guest, resolve onsite impact, retain evidence and cost records"],
+       ["CT", "Check mapping portals/internal settings, investigate root cause, request correction and verify completion"],
+       ["GSM", "Escalate to Client PIC, manage commercial discussion and cost responsibility, maintain client SLA/addendum"],
+       ["SCM", "Explain to hotel and support room change, upgrade or alternative accommodation"]
+      ]
+     },
+     {
+      "t": "h",
+      "text": "4. Internal Response Times"
+     },
+     {
+      "t": "table",
+      "head": ["Severity", "Situation", "Client CS substantive response", "Escalate to GSM"],
+      "rows": [
+       ["Critical", "Guest waiting at hotel", "30 minutes", "Immediately after 30 minutes"],
+       ["Urgent", "Check-in within 24 hours", "1 hour", "Immediately after 1 hour"],
+       ["Normal", "More than 24 hours to check-in", "4 business hours", "If unresolved the same day"],
+       ["Potential", "Future booking with same mapping combination", "1 business day", "Next business day"]
+      ]
+     },
+     {
+      "t": "callout",
+      "v": "note",
+      "title": "Substantive response",
+      "lines": [
+       "An acknowledgement such as 'checking' is not sufficient. The response must include at least one of: confirmed final room, guest notification, cost approval, or a firm resolution time."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "4.1 Start of the Client Response-Time Clock"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "The response-time clock starts when OP sends the initial notice to the Client's designated official CS channel.",
+       "For a Critical case, OP must send the booking number, hotel, check-in time, room mismatch and required action immediately even if supporting evidence is incomplete; remaining evidence may follow.",
+       "An acknowledgement or a response stating only 'checking' is not a substantive response.",
+       "The response window is the deadline for a substantive response and does not necessarily mean final resolution must be completed within the same period."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "4.2 CT Internal Review Times"
+     },
+     {
+      "t": "table",
+      "head": ["Severity", "CT initial review", "Outside CT coverage"],
+      "rows": [
+       ["Critical", "Within 30 minutes during CT coverage", "OP protects guest first; CT prioritizes at next coverage start"],
+       ["Urgent", "Within 4 hours", "Prioritize at next coverage start"],
+       ["Normal / Potential", "Within 1 business day", "Handle next business day"]
+      ]
+     },
+     {
+      "t": "h",
+      "text": "4.3 Client/AGT No-Response Rules"
+     },
+     {
+      "t": "table",
+      "head": ["Situation", "Initial response deadline", "If no response"],
+      "rows": [
+       ["Active guest impact", "1 hour", "Immediate GSM escalation"],
+       ["Check-in within 24 hours", "4 hours", "Immediate GSM escalation"],
+       ["Routine correction request", "1 business day", "CT sends first reminder"],
+       ["No response after reminder", "1 additional business day", "GSM escalates to Client PIC"]
+      ]
+     },
+     {
+      "t": "h",
+      "text": "4.4 GSM Escalation Through Teams"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "Assign a Primary and Backup GSM PIC for each client and maintain a shared, current contact list.",
+       "All GSM escalations must be posted in the designated Teams channel and include the client name, booking number, severity, check-in time, elapsed time, required action and evidence.",
+       "If the Primary GSM PIC does not respond within 10 minutes of the Teams notice, tag the Backup GSM PIC in the same post.",
+       "If the Backup GSM PIC does not respond within an additional 10 minutes, tag the GSM Head.",
+       "While awaiting GSM response, OP may take the minimum necessary guest-protection action within the applicable approval limit."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "4.5 CT Escalation to GSM (After AGT Outreach, Unresolved Mapping Error)"
+     },
+     {
+      "t": "para",
+      "text": "If the mapping error remains unresolved after CT has requested correction from the AGT, CT escalates to GSM within the timeframes below by severity."
+     },
+     {
+      "t": "table",
+      "head": ["Severity", "Situation", "Escalate to GSM after reaching out to AGT (unresolved)"],
+      "rows": [
+       ["Critical", "Guest waiting", "15 min"],
+       ["Urgent", "Check-in within 24h", "2–4h"],
+       ["Normal", "Guest already checked in", "1 day"],
+       ["Specific", "Upcoming booking within N days", "\"N-1\" day"]
+      ]
+     },
+     {
+      "t": "h",
+      "text": "5. OMH-Attributable Error Procedure"
+     },
+     {
+      "t": "list",
+      "ordered": true,
+      "items": [
+       "OP or CT confirms the error and identifies the evidence and affected bookings.",
+       "GSM or the designated owner immediately informs the client that the error is attributable to OMH.",
+       "OP and SCM protect the guest and hotel operation through a room change, upgrade or alternative solution.",
+       "OMH advances necessary costs within the applicable approval authority and retains all evidence.",
+       "CT corrects the mapping and verifies the effective correction.",
+       "OP checks future bookings with the same conditions, shares the outcome with the client and closes the case."
+      ]
+     },
+     {
+      "t": "callout",
+      "v": "tip",
+      "title": "Default rule",
+      "lines": [
+       "Once OMH attribution is confirmed, OMH resolves immediately without waiting for the client to respond."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "5.1 Emergency Cost Approval"
+     },
+     {
+      "t": "table",
+      "head": ["Cost", "Approver", "Critical case"],
+      "rows": [
+       ["Up to USD 200", "OP Manager", "May advance; retrospective approval within 1 business day"],
+       ["USD 201–1,000", "OP Director", "May advance; retrospective approval within 1 business day"],
+       ["Above USD 1,000", "CEO", "May advance only as necessary; CEO retrospective approval within 1 business day"]
+      ]
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "Any advance must be limited to the minimum cost necessary to prevent further guest or hotel impact.",
+       "Receipts, hotel confirmation and the decision trail must be retained for every cost.",
+       "Internal cost approval and recovery of costs from the Client are separate determinations."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "6. Client-Attributable Error Procedure"
+     },
+     {
+      "t": "h",
+      "text": "6.1 Level 1 — Client CS"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "OP validates the booking number, hotel, check-in, original room, guest voucher, room provided, additional cost and evidence.",
+       "OP immediately sends written notice to Client CS and requests confirmation of the final room, guest notification and cost responsibility.",
+       "If Client CS provides a substantive resolution within the response window, OP confirms the hotel/guest action and closes the case."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "6.2 Level 2 — GSM Escalation to Client PIC"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "If Client CS does not respond or cannot resolve within the response window, OP immediately escalates internally to GSM.",
+       "GSM contacts the Client PIC and, where needed, the next-level owner.",
+       "GSM requests written confirmation of root cause, final room, guest notice, upgrade/alternative, cost responsibility and resolution time."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "6.3 Level 3 — Final Notice and Guest-First Action"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "If neither Client CS nor the Client PIC responds, OP issues a final written notice and copies the GSM PIC.",
+       "OP and SCM take reasonable action necessary to avoid further guest or hotel impact.",
+       "OP records reasonable, evidenced incremental costs and claims them subject to the applicable contract, SLA and addendum.",
+       "Before an addendum is executed, use a reservation-of-rights notice rather than stating that client liability is conclusively established."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "7. Type 1 and Type 2 Operating Procedure"
+     },
+     {
+      "t": "h",
+      "text": "7.1 Type 1 — Confirmed Wrong Mapping"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "Obtain the voucher actually received by the guest from the hotel or client.",
+       "Compare the OMH booking, original room, guest voucher, client-confirmed room and room provided by the hotel.",
+       "Immediately report to Client CS and confirm guest notice, final room and additional-cost responsibility.",
+       "OP follows through until the guest impact is resolved, then hands over root-cause review to CT."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "7.2 Type 2 — Potential Mapping"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "Identify future bookings with the same hotel, channel, room type and mapping combination as Type 1.",
+       "Confirm the final room type provided to the guest by the client or downstream agent for each booking.",
+       "Convert any confirmed mismatch to Type 1 immediately and monitor high-risk cases through check-in."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "7.3 Complete Extraction and Reconciliation of Affected Bookings"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "Immediately after a Type 1 case is confirmed, OP must extract from the system the complete population of bookings with the same hotel, channel, room type and mapping combination.",
+       "The population must include both future bookings and bookings whose check-in date has already passed as of the review date.",
+       "Classify every booking as cancelled, check request sent, client response completed, approaching check-in, check-in passed, not sent, or under investigation.",
+       "Reconcile the sum of all status categories to the total system-extracted population. No unclassified booking is permitted.",
+       "Before sending, reconcile the source-system population to the outbound list; after sending, verify the actual sent and received counts.",
+       "A second OP reviewer or OP Manager must verify the total count, exclusion reasons and transmission result.",
+       "Close the task only when unclassified, unsent and untreated bookings are all zero."
+      ]
+     },
+     {
+      "t": "callout",
+      "v": "warn",
+      "title": "Mandatory closure control",
+      "lines": [
+       "Total system population = cancelled + sent + response completed + approaching check-in + check-in passed + under investigation. Each booking must have an owner, status and last-updated timestamp."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "7.4 Past Check-in or Retrospectively Identified Bookings"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "Do not exclude or close a booking solely because its check-in date has passed.",
+       "OP must retrospectively confirm the room actually provided and whether the guest was notified using Client, hotel, internal CS, booking and API records.",
+       "Review whether the guest stayed in a different room or hotel and whether any complaint, refund, compensation, surcharge, settlement difference or Client claim occurred.",
+       "If an actual mismatch or impact is confirmed, convert the case to a retrospective Type 1 incident and apply the cost, responsibility and corrective-action process.",
+       "Even when no impact is identified, document the omission cause, affected population, owner and preventive action.",
+       "Share the retrospective findings and proposed Client communication with GSM, CT and SCM."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "8. Mandatory Evidence and Closure Criteria"
+     },
+     {
+      "t": "table",
+      "head": ["Mandatory evidence", "Closure criteria"],
+      "rows": [
+       ["OMH booking details and original room", "Guest/hotel impact resolved"],
+       ["Voucher/room information actually received by guest", "Final room and guest notification confirmed"],
+       ["Hotel confirmation and onsite action record", "Cost responsibility or reservation of rights recorded"],
+       ["Client CS/PIC communication trail", "CT correction and verification completed"],
+       ["Upgrade, alternative hotel or transport receipts", "Future bookings with same conditions reviewed"],
+       ["System extract, outbound list and transmission record", "Counts reconciled, second review completed and untreated count equals zero"]
+      ]
+     },
+     {
+      "t": "h",
+      "text": "8.1 When the Guest Voucher Cannot Be Obtained"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "Collect the best available alternative evidence: Client booking confirmation, hotel written confirmation or PMS record, guest email/app screenshot, API logs, or Client CS communication.",
+       "The absence of a voucher must not delay necessary guest-protection action.",
+       "Classify the case as a Suspected Mapping Issue until sufficient alternative evidence is obtained or the Client acknowledges responsibility.",
+       "Do not conclude Client cost liability while the case remains Suspected; CT technical investigation continues."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "9. Standard Final Notice Wording"
+     },
+     {
+      "t": "callout",
+      "v": "note",
+      "title": "English",
+      "lines": [
+       "This case appears attributable to the Client or its downstream agent, and no substantive response has been received within the required response window. To prevent further impact to the guest and hotel, Ohmyhotel will proceed with reasonable necessary action. Ohmyhotel reserves its right to recover evidenced incremental costs, subject to the applicable agreement, SLA and addendum."
+      ]
+     },
+     {
+      "t": "callout",
+      "v": "note",
+      "title": "한국어",
+      "lines": [
+       "본 건은 고객사 또는 하위 에이전트 측 맵핑 오류로 판단되며, 정해진 시간 내 실질적인 회신을 받지 못했습니다. 고객과 호텔의 추가 피해를 방지하기 위해 Ohmyhotel이 필요한 합리적 조치를 우선 진행합니다. 이에 따라 발생하는 증빙 가능한 추가 비용에 대한 청구 권리를 유보하며, 적용 가능한 계약·SLA·부속합의서에 따라 후속 처리하겠습니다."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "10. Governance"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "This SOP governs internal handling. Client-facing response obligations and cost allocation must be established in a separate Mapping Error Handling SLA Addendum.",
+       "OP owns case execution; CT owns correction; GSM owns client escalation and the external addendum; SCM owns hotel coordination.",
+       "Review response-time performance, Teams escalation compliance, population reconciliation and repeated mapping failures monthly. Revise this SOP after any material incident or contract change."
+      ]
+     }
+    ]
+   },
+   "revised": "26-Aug-2026"
   }
  ]
 };
