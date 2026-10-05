@@ -6584,6 +6584,152 @@ window.SOP_PAYLOAD = {
     ]
    },
    "revised": "26-Aug-2026"
+  },
+  {
+   "id": "SOP-020",
+   "cat": "request",
+   "title": {
+    "vi": "Cách thực hiện Stop Sell",
+    "en": "How to Do the Stop Sell"
+   },
+   "summary": {
+    "vi": "Xử lý yêu cầu stop sell từ khách sạn/SCM trên ELLIS: ưu tiên cao, kiểm tra chéo bởi người thứ hai và cập nhật file follow-up.",
+    "en": "Process hotel/SCM stop sell requests on ELLIS: top priority, mandatory double check by a second member, and an accurate follow-up file."
+   },
+   "purpose": {
+    "vi": "Đảm bảo mọi yêu cầu stop sell từ khách sạn hoặc SCM được thực hiện chính xác và kịp thời trên ELLIS để tránh thất thoát hoặc phải bồi thường. Stop sell là việc ưu tiên; bắt buộc có bước kiểm tra chéo để không bỏ sót.",
+    "en": "To ensure every stop sell request from a hotel or SCM is applied accurately and promptly on ELLIS to avoid any loss or compensation. Stop sell tasks are a priority, and a double check step is mandatory so that nothing is missed."
+   },
+   "tags": [
+    "stop sell",
+    "ELLIS",
+    "allotment",
+    "double check"
+   ],
+   "version": "1.0",
+   "effective": "05-Oct-2026",
+   "by": "VNOP",
+   "body": {
+    "en": [
+     {
+      "t": "h",
+      "text": "Scope"
+     },
+     {
+      "t": "kv",
+      "title": "",
+      "rows": [
+       ["VN, TH hotels", "VNOP supports after office hours, on holidays and at weekends."],
+       ["SG, HK, TW hotels", "VNOP is the main team in charge."]
+      ]
+     },
+     {
+      "t": "callout",
+      "v": "warn",
+      "title": "Key principles",
+      "lines": [
+       "Stop sell tasks must be treated as a priority to avoid any loss or compensation.",
+       "A double check step is a must to avoid any missing."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "Procedure"
+     },
+     {
+      "t": "h",
+      "text": "Step 1 – Receive the Request"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "Receive the stop sell email or message from the hotel / SCM.",
+       "Track it on the follow-up file to avoid any duplicated task."
+      ]
+     },
+     {
+      "t": "para",
+      "text": "Follow-up file columns to fill in: Country (e.g. SG), Channel, OMH hotel name, PIC, RQ Via (e.g. EMAIL), Request type (STOPSELL), Status, Issue (e.g. SS)."
+     },
+     {
+      "t": "callout",
+      "v": "note",
+      "title": "",
+      "lines": [
+       "The RQ Via column on the follow-up file must be updated correctly, so that if any issue occurs the root cause can be traced easily."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "Step 2 – Apply the Stop Sell on ELLIS"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "Process the stop sell on ELLIS exactly as the hotel requested (hotel, room type and dates).",
+       "Example: a hotel email asks to close out \"All Room Type\" for some date ranges and \"Twin Rooms\" for other dates — apply each room type and each date range separately on the Rate & Allotment screen.",
+       "If the stop sell request has attached files, ALL attached files must be applied, not only the content written by the hotel.",
+       "If the hotel's full name does not show on Rate and ALM, search with the short version of the hotel name."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "Step 3 – Reply to the Hotel"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "After applying the stop sell on ELLIS, reply to the hotel's email to confirm that the request was well received and well applied on ELLIS."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "Step 4 – Double Check and Close"
+     },
+     {
+      "t": "list",
+      "ordered": false,
+      "items": [
+       "After the stop sell task is done, another team member must double check it on ELLIS.",
+       "Fill in the name of the double-check member on the follow-up file.",
+       "Close the case (Status = CLOSED) when the double check is done."
+      ]
+     },
+     {
+      "t": "h",
+      "text": "Special Cases"
+     },
+     {
+      "t": "table",
+      "head": ["Situation", "Action"],
+      "rows": [
+       ["Hotel status is Pending (the hotel has already updated ALM on ELLIS)", "Still do the stop sell. This prevents the hotel from being reopened later with wrong allotment and keeps ALM correct at the same time, so there is no need to check the stop sell again."],
+       ["Hotel uses CMS but still sends the stop sell email", "Reply by informing the hotel that they need to apply the stop sell on the CMS side."],
+       ["Hotel has no ALM on ELLIS before", "VNOP cannot do any stop sell even if the hotel sends the request. The SCM team must inform VNOP when the new ALM is created on ELLIS; VNOP then checks and applies the latest stop sell email."],
+       ["Request has attached files", "Apply all attached files, not only the content written by the hotel."],
+       ["Hotel full name does not show on Rate and ALM", "Check using the short version of the hotel name."]
+      ]
+     },
+     {
+      "t": "h",
+      "text": "Notes"
+     },
+     {
+      "t": "callout",
+      "v": "note",
+      "title": "",
+      "lines": [
+       "Always check the follow-up file first to avoid duplicated tasks.",
+       "Stop sell is a priority task — handle it ahead of routine work to avoid loss and compensation.",
+       "Every stop sell must be double checked by a second member before the case is closed."
+      ]
+     }
+    ]
+   },
+   "revised": "05-Oct-2026"
   }
  ]
 };
